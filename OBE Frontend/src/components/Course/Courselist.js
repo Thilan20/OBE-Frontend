@@ -1,6 +1,6 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
-import Table from './Table';  
+import Table from './Tables';  
   
 export default class Courselist extends Component {  
   

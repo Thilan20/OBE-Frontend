@@ -1,6 +1,5 @@
 import React from 'react';  
 import axios from 'axios';   
-
 import { Container, Col, Form,FormGroup, Label, Input, Button } from 'reactstrap';  
 class Addcourse extends React.Component{  
 constructor(props){  
@@ -17,8 +16,12 @@ Addcourse=()=>{
 .then(json => {  
   console.log(json.data.Status);  
   alert("Data Save Successfully");  
-this.props.history.push('/Courselist')   
- })  
+this.props.history.push('/Courselist')  
+}  
+ 
+  
+ 
+)  
 }  
    
 handleChange= (e)=> {  
