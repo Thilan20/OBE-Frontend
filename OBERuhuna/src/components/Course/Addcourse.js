@@ -4,15 +4,13 @@ import { Container, Col, Form,FormGroup, Label, Input, Button } from 'reactstrap
 
 class Addcourse extends React.Component{  
 constructor(props){  
-super(props) 
-
+super(props)  
 this.state = {  
 ModuleId:'',  
 Name:'',    
 } 
 
-}
-
+}   
 Addcourse=()=>{  
   axios.post('https://localhost:5001/api/Modules', {ModuleId:this.state.ModuleId,Name:this.state.Name,  })  
   
@@ -20,7 +18,12 @@ Addcourse=()=>{
   console.log(json.data.Status);  
   alert("Data Save Successfully");  
 this.props.history.push('/Courselist')  
-}  )  }  
+}  
+ 
+  
+ 
+)  
+}  
    
 handleChange= (e)=> {  
 this.setState({[e.target.name]:e.target.value});  
