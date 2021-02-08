@@ -11,34 +11,31 @@ class Edit extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);  
   
          this.state = {  
-            moduleId: '',  
-            name: '',  
+            ModuleId: '',  
+            Name: '',  
   
         }  
     }  
     
   
   componentDidMount() {  
-      axios.get('https://localhost:5001/api/Modules/'+this.props.match.params.moduleId)  
+      axios.get('https://localhost:5001/api/Modules/?+id='+this.props.match.params.moduleId)  
           .then(response => {  
               this.setState({   
-                ModuleId: response.data.moduleId,   
-                Name: response.data.name,   });  
-                    debugger;           //debug
-          })  
-          .catch(function (error) {  
-              console.log(error);  
+                ModuleId: response.data.ModuleId,   
+                Name: response.data.Name,   });  
+            
           })  
     }  
   
   onChangeModuleId(e) {  
     this.setState({  
-        moduleId: e.target.value  
+        ModuleId: e.target.value  
     });  
   }  
   onChangeName(e) {  
     this.setState({  
-        name: e.target.value  
+        Name: e.target.value  
     });    
   }  
 
@@ -47,9 +44,9 @@ class Edit extends React.Component {
     debugger;  
     e.preventDefault();  
     const obj = {  
-       // Id:this.props.match.params.id,  
-      moduleId: this.state.moduleId,  
-      name: this.state.name,  
+        ModuleId:this.props.match.params.moduleId,  
+      
+      Name: this.state.Name,  
   
     };  
     axios.post('https://localhost:5001/api/Modules/', obj)  
@@ -65,16 +62,16 @@ class Edit extends React.Component {
                 <Form className="form" onSubmit={this.onSubmit}>  
                     <Col>  
                         <FormGroup row>  
-                            <Label for="moduleId" sm={2}>ModuleId</Label>  
+                            <Label for="ModuleId" sm={2}>ModuleId</Label>  
                             <Col sm={10}>  
-                                <Input type="text" name="moduleid" value={this.state.moduleId} onChange={this.onChangeModuleId}   // ModuleId
+                                <Input type="text" name="ModuleId" value={this.state.ModuleId} onChange={this.onChangeModuleId}   // ModuleId
                                 placeholder="Enter ModuleId" />  
                             </Col>  
                         </FormGroup>  
                         <FormGroup row>  
-                            <Label for="name" sm={2}>Name</Label>  
+                            <Label for="Name" sm={2}>Name</Label>  
                             <Col sm={10}>  
-                                <Input type="text" name="Name" value={this.state.name} onChange={this.onChangeName} placeholder="Enter New Name" />  
+                                <Input type="text" name="Name" value={this.state.Name} onChange={this.onChangeName} placeholder="Enter New Name" />  
                             </Col>  
                         </FormGroup>  
                           

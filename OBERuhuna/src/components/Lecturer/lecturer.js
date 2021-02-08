@@ -2,7 +2,9 @@ import React from 'react'
 import { Route, BrowserRouter,Link,Switch} from 'react-router-dom'
 import Logo from './logo.jpg';
 import Courselist from '../Lecturer/Courselist'
+import LOlist from '../Lecturer/LOlist'
 import Coursedetails from '../Lecturer/CourseDetails'
+import AddLO from '../Lecturer/AddLO'  
 const Lecturer = () => {
   return (
     <div>
@@ -44,6 +46,8 @@ const Lecturer = () => {
         <Switch>  
           <Route path='/Courselist' component={Courselist} /> 
           <Route path='/Couredetails' component={Coursedetails} /> 
+          <Route path='/LOlist' component={LOlist} /> 
+          <Route exact path='/AddLO' component={AddLO} />
         </Switch>  
       </div>  
       </BrowserRouter>

@@ -14,7 +14,7 @@ class Table extends Component {
     return (  
         <tr colSpan="4">
           <div class=" offset-md-4">
-              <Link to={"/"}>
+              <Link to={"../Result"} target="_blank">
           <td >  
             {this.props.obj.moduleId}  
           </td> </Link> 

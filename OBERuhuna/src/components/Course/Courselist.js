@@ -1,7 +1,7 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
 import Table from './Tables';  
-  
+import ReactToExcel from 'react-html-table-to-excel';
 export default class Courselist extends Component {  
   
   constructor(props) {  
@@ -31,7 +31,7 @@ export default class Courselist extends Component {
       return (  
         <div>  
           <h4 align="center">Course List</h4>  
-          <table className="table table-striped" style={{ marginTop: 10 }}>  
+          <table className="table table-striped" style={{ marginTop: 10 }} id="table-to-xls">  
             <thead>  
               <tr>  
                 <th>CourseId</th>  
@@ -43,6 +43,14 @@ export default class Courselist extends Component {
              { this.tabRow() }   
             </tbody>  
           </table>  
+
+          <ReactToExcel
+          className="btn btn-success"
+          table="table-to-xls"
+          filename="Excelfile"
+          sheet="sheet1"
+          buttonText="Export"
+          />
         </div>  
       );  
     }  

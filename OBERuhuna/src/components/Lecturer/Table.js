@@ -29,18 +29,14 @@ class Table extends Component {
           
         
           <td>  
-            <Link to={"/"}>
+            <Link to={'/AddLO'}>
               <button type="button"  className="btn btn-success">Add LO</button> 
               </Link>                 
           </td>
-          <td>  
-            <Link to={"/"}>
-              <button type="button"  className="btn btn-success">Add PO</button> 
-              </Link>                 
-          </td>
+       
           <td>  
              
-            <Link to={"../Lecturer/CourseDetails"}>
+            <Link to={'/LOlist'} target="_blank" >
               <button type="button"  className="btn btn-danger">Details</button> 
               </Link>
                             
