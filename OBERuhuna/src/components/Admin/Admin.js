@@ -6,6 +6,7 @@ import EditCourse from '../Course/EditCourse'
 import Courselist from '../Course/Courselist'
 
 
+
 const Admin = () => {
   return (
     <div>
@@ -46,7 +47,7 @@ const Admin = () => {
         <Switch>  
           <Route exact path='/Addcourse' component={Addcourse} />  
           <Route path='/edit/:id' component={EditCourse} />  
-          <Route path='/Courselist' component={Courselist} />  
+          <Route path='/Courselist' component={Courselist}/>  
         </Switch>  
       </div>  
       </BrowserRouter>

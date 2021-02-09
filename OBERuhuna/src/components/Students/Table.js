@@ -15,14 +15,16 @@ class Table extends Component {
         <tr colSpan="4">
           <div class=" offset-md-4">
               <Link to={"/"}>
-          <td >  
-            {this.props.obj.moduleId}  
-          </td> </Link> 
+                  <td >  
+                    {this.props.obj.moduleId}  
+                  </td> 
+              </Link> 
           </div>
         
-            <td >  
+          <td >  
                     {this.props.obj.name}  
-            </td> 
+          </td> 
+
 
         </tr> 
     );

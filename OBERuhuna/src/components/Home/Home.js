@@ -2,10 +2,14 @@ import React from 'react'
 import Logo from './logo.jpg'
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
+
+import Background from './Road.jpg'
 import Background1 from './back4.jpg'
 import Background2 from './back1.jpg'
-import Background3 from './back9.jpg'
-import Background4 from './back3.jpg'
+import Background4 from './back9.jpg'
+import Background3 from './back3.jpg'
+import Background5 from './back4.jpg'
+
 import Background6 from './back8.jpg'
 
 import { Link} from 'react-router-dom'
