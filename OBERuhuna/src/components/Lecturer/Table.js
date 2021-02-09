@@ -1,8 +1,9 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
-//import { Link } from 'react-router-dom';  
 import CourseDetails from '../Lecturer/CourseDetails'
+
 import LO from '../LO/AddLO'
+
 import { Route,Link} from 'react-router-dom'
 
 
@@ -28,7 +29,7 @@ class Table extends Component {
                     {this.props.obj.name}  
            </td> 
           
-        
+   
           <td> 
 
             <Link to={"/AddLO"} target="_blank" >
@@ -36,14 +37,16 @@ class Table extends Component {
               </Link>
           </td>
           
+
           <td>  
             <Link to={"/"}>
               <button type="button"  className="btn btn-success">Add PO</button> 
               </Link>                 
           </td>
           <td>  
-             
+
             <Link to={"/LOlist"}  target="_blank">
+
               <button type="button"  className="btn btn-danger">Details</button> 
               </Link>
                             

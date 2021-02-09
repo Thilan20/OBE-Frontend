@@ -25,6 +25,7 @@ class Table extends Component {
                     {this.props.obj.name}  
           </td> 
 
+
         </tr> 
     );
       
