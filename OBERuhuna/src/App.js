@@ -9,7 +9,7 @@ import CreateCourse from'./components/CreateCourse/CreateCourse'
 import Admin from './components/Admin/Admin'
 import LOlist from './components/Lecturer/LOlist'
 import Result from './components/Results/Result'
-
+import View from './components/Lecturer/View'
 class App extends Component {
   render() {
     return (
@@ -24,6 +24,7 @@ class App extends Component {
           <Route path='/createcourse' component={CreateCourse} />
           <Route path='/Result' component={Result} />
           <Route path='/LOlist' component={LOlist} /> 
+          <Route path='/View' component={View} />
         </div>        
       </div>
       </BrowserRouter>

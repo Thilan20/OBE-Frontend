@@ -5,7 +5,9 @@ import Courselist from '../Lecturer/Courselist'
 import LOlist from '../Lecturer/LOlist'
 import Coursedetails from '../Lecturer/CourseDetails'
 import AddLO from '../Lecturer/AddLO'  
+
 const Lecturer = () => {
+
   return (
     <div>
         <div class= "header">
@@ -51,9 +53,11 @@ const Lecturer = () => {
         </Switch>  
       </div>  
       </BrowserRouter>
-
-
       </div>
+      <div class="col-md-4 offset-md-4  ">
+      <Link to={"/View"} target="_blank">
+    <button type="button" >View</button> </Link> 
+    </div>
     </div>
   )
 }

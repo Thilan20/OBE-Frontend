@@ -8,12 +8,13 @@ constructor(props){
 super(props)  
 this.state = {  
 ID:'',  
-Name:'',    
+Name:'',   
+ModuleId:'',  
 } 
 
 }   
 AddLO=()=>{  
-  axios.post('https://localhost:5001/api/LOes', {Name:this.state.Name,  })  
+  axios.post('https://localhost:5001/api/LOes', {Name:this.state.Name,ModuleId:this.state.ModuleId,  })  
   
 .then(json => {   
   window.opener = null;
@@ -40,7 +41,12 @@ return (
             <Input type="text" name="Name" onChange={this.handleChange} value={this.state.Name} placeholder="Enter LO Name" />  
           </Col>  
         </FormGroup>  
-           
+        <FormGroup row>  
+          <Label for="name" sm={2}>ModuleId</Label>  
+          <Col sm={10}>  
+            <Input type="text" name="ModuleId" onChange={this.handleChange} value={this.state.ModuleId} placeholder="Enter Module ID" />  
+          </Col>  
+        </FormGroup>  
       </Col>  
       <Col>  
         <FormGroup row>  

@@ -12,21 +12,21 @@ class Table extends Component {
     super(props);  
     }
       
-   
      
   render() {  
     return (  
         <tr colSpan="4">
           <div class=" offset-md-4">
+            <Link to={'/LOlist'} target="_blank" >
           <td >  
             {this.props.obj.moduleId}  
-          </td>  
+          </td>  </Link>
+          
           </div>
         
             <td >  
                     {this.props.obj.name}  
            </td> 
-          
         
           <td>  
             <Link to={'/AddLO'}>
@@ -42,6 +42,7 @@ class Table extends Component {
                             
           </td>  
         </tr> 
+        
     );
       
   }  

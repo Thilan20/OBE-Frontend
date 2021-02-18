@@ -19,6 +19,7 @@ class Edit extends React.Component {
     
   
   componentDidMount() {  
+      
       axios.get('https://localhost:5001/api/Modules/?+id='+this.props.match.params.moduleId)  
           .then(response => {  
               this.setState({   
@@ -64,14 +65,14 @@ class Edit extends React.Component {
                         <FormGroup row>  
                             <Label for="ModuleId" sm={2}>ModuleId</Label>  
                             <Col sm={10}>  
-                                <Input type="text" name="ModuleId" value={this.state.ModuleId} onChange={this.onChangeModuleId}   // ModuleId
+                                <Input type="text" name="ModuleId" value={this.state.moduleId} onChange={this.onChangeModuleId}   // ModuleId
                                 placeholder="Enter ModuleId" />  
                             </Col>  
                         </FormGroup>  
                         <FormGroup row>  
                             <Label for="Name" sm={2}>Name</Label>  
                             <Col sm={10}>  
-                                <Input type="text" name="Name" value={this.state.Name} onChange={this.onChangeName} placeholder="Enter New Name" />  
+                                <Input type="text" name="Name" value={this.state.name} onChange={this.onChangeName} placeholder="Enter New Name" />  
                             </Col>  
                         </FormGroup>  
                           

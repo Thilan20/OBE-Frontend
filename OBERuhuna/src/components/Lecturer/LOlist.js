@@ -1,21 +1,22 @@
 import React, { Component } from 'react';  
-import { Route, BrowserRouter,Link,Switch,withRouter} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import axios from 'axios';  
 import Table1 from '../Lecturer/Table1';  
 import Logo from '../logo.jpg';
 export default class LOlist extends Component {  
   
   constructor(props) {  
+    
       super(props);  
       this.state = {business: []};  
     }  
     componentDidMount(){  
       debugger;  
-      axios.get('https://localhost:5001/api/LOes')  
+      console.log("hi",this.props.match.params.id);
+      axios.get('https://localhost:5001/api/LOes?id=2')  
         .then(response => {  
           this.setState({ business: response.data });  
-          debugger;  
-  
+      
         })  
         .catch(function (error) {  
           console.log(error);  

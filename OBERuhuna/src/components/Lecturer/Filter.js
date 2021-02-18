@@ -5,15 +5,15 @@ import CourseDetails from '../Lecturer/CourseDetails'
 import { Route,Link} from 'react-router-dom'
 
 
-class Table1 extends Component {  
+class Filter extends Component {  
   
 
   constructor(props) {  
     super(props);  
     }
       
-    DeleteLO= () =>{  
-      axios.delete('https://localhost:5001/api/LOes/'+this.props.obj.id)  
+    FilterLO= () =>{  
+      axios.get('https://localhost:5001/api/LOes/'+this.props.obj.id)  
      .then(json => {  
      alert('Record deleted successfully!!');  
      window.location.reload(false);
@@ -37,7 +37,7 @@ class Table1 extends Component {
           </td>
           <td>  
           <Link to={"/LOlist"}>
-              <button type="button" onClick={this.DeleteLO} className="btn btn-danger">Delete</button> </Link> 
+              <button type="button" onClick={this.FilterLO} className="btn btn-danger">Filter</button> </Link> 
           </td>
         </tr> 
         
@@ -46,4 +46,4 @@ class Table1 extends Component {
   }  
 }  
   
-export default Table1; 
+export default Filter; 
