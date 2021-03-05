@@ -10,7 +10,11 @@ import Admin from './components/Admin/Admin'
 import Talbe from './components/Lecturer/Table'
 import LO from './components/LO/AddLO'
 import LOlist from './components/LO/LOlist'
-
+import DynamicTable from './components/LO/DynamicTable'
+import AddPO from './components/PO/AddPO';
+import POlist from './components/PO/POlsit'
+import AsComponentList from './components/AssignmentComponents/AsComponentList';
+import AddAsComponent from './components/AssignmentComponents/AddAsComponent';
 class App extends Component {
   render() {
     return (
@@ -23,9 +27,13 @@ class App extends Component {
           <Route path='/admin' component={Admin} />
           <Route path='/login' component={Login} />
           <Route path='/createcourse' component={CreateCourse} />
-          <Route path ='/AddLO' component = {LO}/>
-          <Route path = '/LOlist' component ={LOlist} />
-
+          <Route path ='/AddLO/:value' component = {LO}/>
+          <Route path = '/LOlist/:value' component ={LOlist} />
+          <Route path ='/DynamicTable' component={ DynamicTable}/>
+          <Route path = '/AddPO' component={AddPO}/>
+          <Route path='/POlist' component={POlist}/>
+          <Route path='/Ascomponent' component={AsComponentList}/>
+          <Route path= '/AddAsComponent' component={AddAsComponent} />
         </div>        
       </div>
       </BrowserRouter>

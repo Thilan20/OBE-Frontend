@@ -7,12 +7,14 @@ constructor(props){
 super(props)  
 this.state = {  
 ModuleId:'',  
-Name:'',    
+Name:'',
+credits:'',
+state:''    
 } 
 
 }   
 Addcourse=()=>{  
-  axios.post('https://localhost:5001/api/Modules', {ModuleId:this.state.ModuleId,Name:this.state.Name,  })  
+  axios.post('https://localhost:5001/api/Modules1', {ModuleId:this.state.ModuleId,Name:this.state.Name,credits:this.state.credits,state:this.state.state, })  
   
 .then(json => {  
   console.log(json.data.Status);  
@@ -45,6 +47,19 @@ return (
           <Label for="name" sm={2}>Name</Label>  
           <Col sm={10}>  
             <Input type="text" name="Name" onChange={this.handleChange} value={this.state.Name} placeholder="Enter Module Name" />  
+          </Col>  
+        </FormGroup>
+        <FormGroup row>
+
+          <Label for="credits" sm={2}>Number of Credits</Label>  
+          <Col sm={10}>  
+            <Input type="text" name="credits" onChange={this.handleChange} value={this.state.credits} placeholder="Enter Number of Credits" />  
+          </Col>  
+        </FormGroup>
+        <FormGroup row>  
+          <Label for="state" sm={2}>State of the Module</Label>  
+          <Col sm={10}>  
+            <Input type="text" name="state" onChange={this.handleChange} value={this.state.state} placeholder="Core/GE/TE" />  
           </Col>  
         </FormGroup>  
            

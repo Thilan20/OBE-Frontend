@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import axios from 'axios';  
 //import { Link } from 'react-router-dom';  
 import { Route,Link} from 'react-router-dom'
-import DynamicTable from './DynamicTable'
+import DynamicTable from '../LO/DynamicTable'
 
 
-class LOTable extends Component {  
+class POTable extends Component {  
   
 
   constructor(props) {  
     super(props);  
     }
       
-    DeleteLO= () =>{  
-     axios.delete('https://localhost:5001/api/LOes1/'+this.props.obj.lid)  
+    DeletePO= () =>{  
+     axios.delete('https://localhost:5001/api/POes/'+this.props.obj.poid)  
     .then(json => {  
     alert('Record deleted successfully!!');
     window.location.reload(false);  
@@ -27,29 +27,22 @@ class LOTable extends Component {
         <tr >  
           <div class=" col-md-1 offset-md-5">
             <td >  
-              {this.props.obj.loid}  
+              {this.props.obj.poid}  
             </td>
             
           </div>      
           
             <td >  
-              {this.props.obj.loName}  
+              {this.props.obj.poName}  
             </td>
             <td>  
-            <Link to={"/AddPO"} target="_blank">
-              <button type="button"  className="btn btn-success">Add PO</button> 
+            <Link to={"/Ascomponent"} >
+              <button type="button"  className="btn btn-success">Map</button> 
               </Link>                 
           </td>
-
           <td>  
-            <Link to={"/LOlist/99"}>
-              <button type="button" onClick={this.DeleteLO} className="btn btn-danger">Delete</button> 
-              </Link>                 
-          </td>
-
-          <td>  
-            <Link to={"/POlist"} target="_blank">
-              <button type="button"  className="btn btn-success">PO List</button> 
+            <Link to={"/POlist"}>
+              <button type="button" onClick={this.DeletePO} className="btn btn-danger">Delete</button> 
               </Link>                 
           </td>
       </tr> 
@@ -58,4 +51,4 @@ class LOTable extends Component {
   }  
 }  
   
-export default LOTable; 
+export default POTable; 

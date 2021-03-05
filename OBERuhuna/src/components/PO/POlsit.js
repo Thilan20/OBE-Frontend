@@ -1,8 +1,9 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
-import Table from './Tables';  
+import Logo from '../logo.jpg';
+import POTable from '../PO/POTables';  
   
-export default class Courselist extends Component {  
+export default class POlist extends Component {  
   
   constructor(props) {  
       super(props);  
@@ -10,7 +11,7 @@ export default class Courselist extends Component {
     }  
     componentDidMount(){  
       debugger;  
-      axios.get('https://localhost:5001/api/Modules1')  
+      axios.get('https://localhost:5001/api/POes')  
         .then(response => {  
           this.setState({ business: response.data });  
           debugger;  
@@ -23,22 +24,32 @@ export default class Courselist extends Component {
       
     tabRow(){  
       return this.state.business.map(function(object, i){  
-          return <Table obj={object} key={i} />;  
+          return <POTable obj={object} key={i} />;  
       });  
     }  
   
     render() {  
       return (  
         <div>  
-          <h4 align="center">Course List</h4>  
+        <div className ="header"> 
+        <img src={Logo} alt ='weblogo' />
+        
+          
+           
+              <h1>Faculty of Engineering University of Ruhuna</h1>
+            
+            <h2>Outcome Based Education System</h2>
+          
+
+        </div>
+          <h4 align="center">PO List</h4>  
           <table className="table table-striped" style={{ marginTop: 10 }}>  
             <thead>  
               <tr>  
-                <th>CourseId</th>  
-                <th>Name</th>  
-                <th>Credits</th>
-                <th>State</th>
-                <th colSpan="4">Action</th>  
+                <th >POId</th>  
+                <th >PO Name</th>
+                <th>Map</th>
+                <th> Delete</th>   
               </tr>  
             </thead>  
             <tbody>  

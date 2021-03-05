@@ -31,19 +31,19 @@ class Table extends Component {
         
           <td> 
 
-            <Link to={"/AddLO"} target="_blank" >
+            <Link to={`/AddLO/${ this.props.obj.moduleId }`} target="_blank" >
               <button type="button"  className="btn btn-success">Add LO</button> 
               </Link>
           </td>
-          
+          {/*
           <td>  
             <Link to={"/"}>
               <button type="button"  className="btn btn-success">Add PO</button> 
               </Link>                 
           </td>
+          */}
           <td>  
-             
-            <Link to={"/LOlist"}  target="_blank">
+              <Link to={`/LOlist/${ this.props.obj.moduleId }`}  target="_blank">
               <button type="button"  className="btn btn-danger">Details</button> 
               </Link>
                             

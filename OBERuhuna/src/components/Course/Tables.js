@@ -11,7 +11,7 @@ class Table extends Component {
     }
       
     DeleteCourse= () =>{  
-     axios.delete('https://localhost:5001/api/Modules/'+this.props.obj.moduleId)  
+     axios.delete('https://localhost:5001/api/Modules1/'+this.props.obj.moduleId)  
     .then(json => {  
     alert('Record deleted successfully!!');  
      
@@ -27,6 +27,12 @@ class Table extends Component {
           </td>  
           <td>  
             {this.props.obj.name}  
+          </td>
+          <td>
+            {this.props.obj.credits}
+          </td> 
+          <td>
+            {this.props.obj.state}
           </td>   
           <td>  
           <Link to={"/edit/"+this.props.obj.Id} className="btn btn-success">Edit</Link>  

@@ -4,31 +4,31 @@ import { Container, Col, Form,FormGroup, Label, Input, Button } from 'reactstrap
 import Logo from '../logo.jpg';
 import { Route, BrowserRouter,Link,Switch} from 'react-router-dom'
 
-class AddLO extends React.Component{  
+class AddPO extends React.Component{  
   constructor(props){  
   super(props)  
   this.state = {  
-  loid:'',  
-  loName:'',
-  //ModuleId:'', 
+  poid:'',  
+  poName:'',    
   } 
   
   }   
-  AddLO=()=>{  
-    axios.post('https://localhost:5001/api/LOes', {loid:this.state.loid,
-  loName:this.state.loName,ModuleId:this.props.match.params.value })  
+  AddPO=()=>{  
+    axios.post('https://localhost:5001/api/POes', {poid:this.state.poid,
+    poName:this.state.poName,  })  
     
   .then(json => {  
-      console.log(json.data.Status);  
-      alert("Data Save Successfully to "+this.props.match.params.value); 
+      console.log(json.data.Status);
+      alert("New PO Added to the list");   
       window.open("", "_self");
     window.close(); 
-      this.props.history.push('/LOlist') 
+
               }  
       )
   }
 
   onClose = () => {
+    alert("Are you Sure You want to cancel?"); 
     window.open("", "_self");
     window.close();
   }
@@ -45,25 +45,19 @@ class AddLO extends React.Component{
     
     <Container className="App"> 
      
-    <h4 className="PageHeading">Add Learning Outcomes </h4>  
+    <h4 className="PageHeading">Add Program Outcomes </h4>  
     <Form className="form">  
       <Col>  
-      <FormGroup row>  
-          <Label for="loid" sm={2}></Label>  
-            
-        </FormGroup>  
-
-
         <FormGroup row>  
-          <Label for="loid" sm={2}>loid</Label>  
+          <Label for="poid" sm={2}>Enter Poid</Label>  
           <Col sm={10}>  
-            <Input type="text" name="loid" onChange={this.handleChange} value={this.state.loid} placeholder="Enter LO Id" />  
+            <Input type="text" name="poid" onChange={this.handleChange} value={this.state.poid} placeholder="POid" />  
           </Col>  
         </FormGroup>  
         <FormGroup row>  
-          <Label for="name" sm={2}>Name</Label>  
+          <Label for="name" sm={2}>Enter PO Name</Label>  
           <Col sm={10}>  
-            <Input type="text" name="loName" onChange={this.handleChange} value={this.state.loName} placeholder="Enter LO Name" />  
+            <Input type="text" name="poName" onChange={this.handleChange} value={this.state.poName} placeholder="PO Name" />  
           </Col>  
         </FormGroup>  
            
@@ -73,22 +67,20 @@ class AddLO extends React.Component{
           <Col sm={5}>  
           </Col>  
           <Col sm={2}>  
-          <button type="button" onClick={this.AddLO} className="btn btn-success">Submit</button>  
+          <button type="button" onClick={this.AddPO} className="btn btn-success">Submit</button>  
           </Col>  
           <Col sm={2}>  
-            <Button color="danger" onClick={this.onClose}>Cancel</Button>
+            <Button color="danger"  onClick={this.onClose} >Cancel</Button>
           </Col>  
           <Col sm={5}>  
           </Col>  
         </FormGroup>  
       </Col>  
     </Form>  
-    
   </Container>  
     
   );
 }
-
 }
 
-export default AddLO
+export default AddPO

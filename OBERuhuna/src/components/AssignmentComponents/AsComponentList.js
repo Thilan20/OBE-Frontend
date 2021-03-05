@@ -1,9 +1,11 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
 import Logo from './logo.jpg';
-import LOTable from '../LO/LOTables';  
+import { Route, BrowserRouter,Link,Switch} from 'react-router-dom'
+
+import AsComponentTable from './AsComponentTable';
   
-export default class LOlist extends Component {  
+export default class AsComponentList extends Component {  
   
   constructor(props) {  
       super(props);  
@@ -11,12 +13,12 @@ export default class LOlist extends Component {
     }  
     componentDidMount(){  
       debugger;  
-      axios.get('https://localhost:5001/api/LOes/'/*+this.props.match.params.value*/)  
+      axios.get('https://localhost:5001/api/AsComponents'/*+this.props.match.params.value*/)  
         .then(response => {  
       
           this.setState({ business: response.data });
           console.log(json.data.Status);  
-          alert("LOs of  "+this.props.match.params.value);   
+          alert("Assignment Components"/*+this.props.match.params.value*/);   
           debugger;  
   
         })  
@@ -27,7 +29,7 @@ export default class LOlist extends Component {
       
     tabRow(){  
       return this.state.business.map(function(object, i){  
-          return <LOTable obj={object} key={i} />;  
+          return <AsComponentTable obj={object} key={i} />;  
       });  
     }  
     
@@ -45,15 +47,25 @@ export default class LOlist extends Component {
           
 
         </div>
-          <h4 align="center">LO List</h4>  
+        <div class="column col-md-1 offset-md-5">
+        <h4 align="center">Assessment Components </h4> 
+        </div>
+            
+        <div class="column col-md-2 offset-md-4">
+            <Link to={"/AddAsComponent"}> 
+              <button> Add Assessment Components</button>
+            </Link>
+          </div>
           <table className="table table-striped" style={{ marginTop: 10 }}>  
             <thead>  
               <tr>  
-                <th >LOId</th>  
-                <th >LO Name</th>
+                <th >Assessnment Component</th>  
+                <th >LO </th>
                 <th>PO</th>
-                <th> Delete</th>   
-                <th>PO List</th>
+                <th> Marks</th>   
+                <th>Learning Domain</th>
+                <th>Type</th>
+                <th>Delete</th>
               </tr>  
             </thead>  
             <tbody>  
