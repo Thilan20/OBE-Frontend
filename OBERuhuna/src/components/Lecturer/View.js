@@ -62,6 +62,8 @@ export class View extends React.Component  {
         <div class ="title">
             <h2> Department of Electrical and Information Engineering</h2>
             <h3>Cousrse assigned by Head of the Department</h3>
+
+            
         </div>
 
 
@@ -71,18 +73,18 @@ export class View extends React.Component  {
 
     <input type="file" onChange={this.fileHandler.bind(this)}  />
     <div>{this.state.rows&& <OutTable data={this.state.rows} columns={this.state.cols} tableClassName="ExcelTable2007" tableHeaderRowClass="heading"/>}</div>
-      </div>
-
+      </div><br></br><br></br>
+      <h4>Student Marks</h4>
       <div className="container">
           {
             data.map(obj => {
               return (
-                <div key={obj.employee}>
+                <div key={obj.student}>
                   <table className="table table-striped "  style={{ marginTop: 10 }}>
               
                   <tr>
-                 <td colSpan="1"> {obj.employee}</td>
-                 <td colSpan="1">{obj.favDog}</td>
+                 <td colSpan="1"> {obj.student}</td>
+                 <td colSpan="1">{obj.marks}</td>
                  </tr></table>
                 </div>
               )

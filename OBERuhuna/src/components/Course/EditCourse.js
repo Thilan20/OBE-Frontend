@@ -6,52 +6,63 @@ class Edit extends React.Component {
     constructor(props) {  
         super(props)  
      
-    this.onChangeModuleId = this.onChangeModuleId.bind(this);  
-    this.onChangeName = this.onChangeName.bind(this);  
+    this.onChangemoduleId = this.onChangemoduleId.bind(this);  
+    this.onChangename = this.onChangename.bind(this);  
+    this.onChangeid = this.onChangeid.bind(this);  
     this.onSubmit = this.onSubmit.bind(this);  
   
          this.state = {  
-            ModuleId: '',  
-            Name: '',  
+            moduleId: '',  
+            name: '',  
+           id:''
   
         }  
     }  
     
   
   componentDidMount() {  
-      
-      axios.get('https://localhost:5001/api/Modules/?+id='+this.props.match.params.moduleId)  
+    console.log("get",this.props.match.params.id);
+      axios.get('https://localhost:5001/api/Modules?+id='+this.props.match.params.id)  
           .then(response => {  
               this.setState({   
-                ModuleId: response.data.ModuleId,   
-                Name: response.data.Name,   });  
+                moduleId: response.data.moduleId,   
+                name: response.data.name, 
+                });  
             
           })  
+          .catch(function (error) {  
+            console.log(error);  
+        })  
     }  
   
-  onChangeModuleId(e) {  
+  onChangemoduleId(e) {  
     this.setState({  
-        ModuleId: e.target.value  
+        moduleId: e.target.value  
     });  
   }  
-  onChangeName(e) {  
+  onChangename(e) {  
     this.setState({  
-        Name: e.target.value  
+        name: e.target.value  
     });    
   }  
-
+  onChangeid(e) {  
+    this.setState({  
+        id: e.target.value  
+    });    
+  }  
   
   onSubmit(e) {  
     debugger;  
     e.preventDefault();  
     const obj = {  
-        ModuleId:this.props.match.params.moduleId,  
-      
-      Name: this.state.Name,  
+        id:this.props.match.params.id,  
+      moduleId:this.state.moduleId,
+      name: this.state.name,  
   
     };  
-    axios.post('https://localhost:5001/api/Modules/', obj)  
+    axios.post('https://localhost:5001/api/Modules/',  {ModuleId:this.state.ModuleId,Name:this.state.Name,  })  
         .then(res => console.log(res.data));  
+        console.log("hello",this.state.name);
         debugger;  
         this.props.history.push('/Courselist')  
   }  
@@ -65,14 +76,14 @@ class Edit extends React.Component {
                         <FormGroup row>  
                             <Label for="ModuleId" sm={2}>ModuleId</Label>  
                             <Col sm={10}>  
-                                <Input type="text" name="ModuleId" value={this.state.moduleId} onChange={this.onChangeModuleId}   // ModuleId
+                                <Input type="text" name="moduleId" value={this.state.moduleId} onChange={this.onChangemoduleId}   // ModuleId
                                 placeholder="Enter ModuleId" />  
                             </Col>  
                         </FormGroup>  
                         <FormGroup row>  
                             <Label for="Name" sm={2}>Name</Label>  
                             <Col sm={10}>  
-                                <Input type="text" name="Name" value={this.state.name} onChange={this.onChangeName} placeholder="Enter New Name" />  
+                                <Input type="text" name="name" value={this.state.name} onChange={this.onChangename} placeholder="Enter New Name" />  
                             </Col>  
                         </FormGroup>  
                           

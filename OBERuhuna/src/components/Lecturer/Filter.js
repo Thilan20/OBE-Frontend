@@ -1,49 +1,53 @@
 import React, { Component } from 'react';  
+import { Link} from 'react-router-dom'
 import axios from 'axios';  
-//import { Link } from 'react-router-dom';  
-import CourseDetails from '../Lecturer/CourseDetails'
-import { Route,Link} from 'react-router-dom'
+import Table1 from '../Lecturer/Table1';  
+import Logo from '../logo.jpg';
 
-
-class Filter extends Component {  
+export default class Filter extends Component {  
   
-
   constructor(props) {  
-    super(props);  
-    }
+    
+      super(props);  
+      this.state = {business: []};  
+    }  
+    componentDidMount(){  
+      debugger;  
+      console.log("hi",this.props.match.params.id);
+      axios.get('https://localhost:5001/api/LOes?id='+this.props.match.params.id)  
+        .then(response => {  
+          this.setState({ business: response.data });  
       
-    FilterLO= () =>{  
-      axios.get('https://localhost:5001/api/LOes/'+this.props.obj.id)  
-     .then(json => {  
-     alert('Record deleted successfully!!');  
-     window.location.reload(false);
-     }) 
-    } 
-     
-  render() {  
-    return (  
+        })  
+        .catch(function (error) {  
+          console.log(error);  
+        })  
+    }  
       
-        <tr>
-            <td >  
-                    {this.props.obj.name}  
-           </td> 
-           <td >  
-                    {this.props.obj.moduleId}  
-           </td> 
-          <td>  
-            <Link to={"/"} target="_blank">
-              <button type="button"  className="btn btn-success">Add PO</button> 
-              </Link>                 
-          </td>
-          <td>  
-          <Link to={"/LOlist"}>
-              <button type="button" onClick={this.FilterLO} className="btn btn-danger">Filter</button> </Link> 
-          </td>
-        </tr> 
-        
-    );
-      
-  }  
-}  
+    tabRow(){  
+      return this.state.business.map(function(object, i){  
+          return <Table1 obj={object} key={i} />;  
+      });  
+    }  
   
-export default Filter; 
+    render() {  
+      return (  
+        <div>  
+        
+        <div className="container">
+          <h4 align="center">LO List</h4>  
+          <table className="table table-striped " style={{ marginTop: 10 }}>  
+            <thead>  
+              <tr>  
+                <th colSpan="1" >Name</th>   
+                <th colSpan="5">Action</th> 
+              </tr>  
+            </thead>  
+            <tbody>  
+             { this.tabRow() }   
+            </tbody>  
+          </table>  
+        </div>  </div>
+      );  
+    }  
+  }  

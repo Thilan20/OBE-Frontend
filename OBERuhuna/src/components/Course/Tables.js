@@ -31,7 +31,7 @@ class Table extends Component {
             {this.props.obj.name}  
           </td>   
           <td>  
-          <Link to={"/edit/"+this.props.obj.moduleId} className="btn btn-success">Edit</Link>  
+          <Link to={"/edit/"+this.props.obj.id} className="btn btn-success">Edit</Link>  
           </td>  
           <td>  
            <Link to={"/"}>

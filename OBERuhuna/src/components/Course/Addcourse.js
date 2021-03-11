@@ -7,7 +7,8 @@ constructor(props){
 super(props)  
 this.state = {  
 ModuleId:'',  
-Name:'',    
+Name:'', 
+Id:'',   
 } 
 
 }   

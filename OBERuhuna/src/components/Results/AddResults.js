@@ -23,9 +23,49 @@ const generateNewId = () => {
   return maxValue;
 };
 
+const AddButton = ({
+  dispatch,
+}) => {
+ return (
+  <div className='plus-cell-button'>
+    <img
+      src='https://komarovalexander.github.io/ka-table/static/icons/plus.svg'
+      alt='Add New Row'
+      title='Add New Row'
+      onClick={() => dispatch(showNewRow())}
+    />
+  </div>
+ );
+};
 
-
-
+const SaveButton = ({
+  dispatch
+}) => {
+  const saveNewData = () => {
+    const rowKeyValue = generateNewId();
+    dispatch(saveNewRow(rowKeyValue, {
+      validate: true
+    }));
+  };
+  return (
+   <div className='buttons'>
+    <img
+      src='https://komarovalexander.github.io/ka-table/static/icons/save.svg'
+      className='save-cell-button'
+      alt='Save'
+      title='Save'
+      onClick={saveNewData}
+    />
+    <img
+      src='https://komarovalexander.github.io/ka-table/static/icons/close.svg'
+      className='close-cell-button'
+      alt='Cancel'
+      title='Cancel'
+      onClick={() => dispatch(hideNewRow())}
+    />
+   </div>
+ );
+};
 
 const tablePropsInit = {
   columns: [
@@ -43,15 +83,18 @@ const tablePropsInit = {
   ],
 
   data: dataArray,
-
-
+  editableCells: [{
+    columnKey: 'name',
+    rowKeyValue: 2,
+  }],
+  editingMode: EditingMode.Cell,
   rowKeyField: 'id',
 };
 
 
 
 
-const Result = () => {
+const AddResults = () => {
   const [tableProps, changeTableProps] = useState(tablePropsInit);
   const dispatch = (action) => {
     changeTableProps((prevState) => kaReducer(prevState, action));
@@ -87,11 +130,26 @@ const Result = () => {
       </div>
       <Table
         {...tableProps}
-      
+        childComponents={{
+          cellEditor: {
+            content: (props) => {
+              if (props.column.key === 'addColumn'){
+                return <SaveButton {...props}/>;
+              }
+            }
+          },
+          headCell: {
+            content: (props) => {
+              if (props.column.key === 'addColumn'){
+                return <AddButton {...props}/>;
+              }
+            }
+          }
+        }}
         dispatch={dispatch}
       />
     </div>
   );
 };
 
-export default Result;
+export default AddResults;

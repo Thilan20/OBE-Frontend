@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from './logo.jpg';
 import { Route, BrowserRouter,Link,Switch} from 'react-router-dom';
 import Courselist from '../Students/Courselist';
-import Result from '../Results/Result'
+import Result from '../Results/AddResults'
 
 const Student = () => {
 

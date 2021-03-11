@@ -3,11 +3,14 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from "rech
 import React, { Component } from 'react';  
 import Logo from './logo.jpg';
 
+
+
+
 const Result = () => {
 
 
 
-  const data = [
+  const data1 = [
     {
       name: 'LO1', uv: 4000, pv: 70, amt: 2400,
     },
@@ -78,7 +81,7 @@ const Result = () => {
         <BarChart
         width={900}
         height={300}
-        data={data}
+        data={data1}
         margin={{
           top: 5, right: 0, left: 160, bottom: 5,
         }}

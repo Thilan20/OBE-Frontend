@@ -9,12 +9,13 @@ super(props)
 this.state = {  
 ID:'',  
 Name:'',   
-ModuleId:'',  
+ModuleId:'',
+POId:'',  
 } 
 
 }   
 AddLO=()=>{  
-  axios.post('https://localhost:5001/api/LOes', {Name:this.state.Name,ModuleId:this.state.ModuleId,  })  
+  axios.post('https://localhost:5001/api/LOes', {Name:this.state.Name,ModuleId:this.state.ModuleId,POId:this.state.POId  })  
   
 .then(json => {   
   window.opener = null;
@@ -46,6 +47,12 @@ return (
           <Col sm={10}>  
             <Input type="text" name="ModuleId" onChange={this.handleChange} value={this.state.ModuleId} placeholder="Enter Module ID" />  
           </Col>  
+        </FormGroup> 
+        <FormGroup row>  
+          <Label for="name" sm={2}>POId</Label>  
+          <Col sm={10}>  
+            <Input type="text" name="POId" onChange={this.handleChange} value={this.state.POId} placeholder="Enter PO ID" />  
+          </Col>  
         </FormGroup>  
       </Col>  
       <Col>  
@@ -53,7 +60,7 @@ return (
           <Col sm={5}>  
           </Col>  
           <Col sm={2}>  
-          <Link to={"/LOlist"} target="_blank">
+          <Link to={"/Courselist"} >
           <button type="button" onClick={this.AddLO} className="btn btn-success">Submit</button>  </Link>
           </Col>  
           <Col sm={2}>  

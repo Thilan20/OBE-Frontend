@@ -9,7 +9,9 @@ import CreateCourse from'./components/CreateCourse/CreateCourse'
 import Admin from './components/Admin/Admin'
 import LOlist from './components/Lecturer/LOlist'
 import Result from './components/Results/Result'
+import AddResults from './components/Results/AddResults'
 import View from './components/Lecturer/View'
+import Filter from './components/Lecturer/Filter'
 class App extends Component {
   render() {
     return (
@@ -23,8 +25,10 @@ class App extends Component {
           <Route path='/login' component={Login} />
           <Route path='/createcourse' component={CreateCourse} />
           <Route path='/Result' component={Result} />
+          <Route path='/AddResults' component={AddResults} />
           <Route path='/LOlist' component={LOlist} /> 
           <Route path='/View' component={View} />
+          <Route path='/filter/:id' component={Filter} /> 
         </div>        
       </div>
       </BrowserRouter>
@@ -33,3 +37,4 @@ class App extends Component {
 }
 
 export default App;
+

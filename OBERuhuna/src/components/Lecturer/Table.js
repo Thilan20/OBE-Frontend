@@ -17,10 +17,10 @@ class Table extends Component {
     return (  
         <tr colSpan="4">
           <div class=" offset-md-4">
-            <Link to={'/LOlist'} target="_blank" >
+         
           <td >  
             {this.props.obj.moduleId}  
-          </td>  </Link>
+          </td> 
           
           </div>
         
@@ -36,7 +36,7 @@ class Table extends Component {
        
           <td>  
              
-            <Link to={'/LOlist'} target="_blank" >
+            <Link to={'/filter/'+this.props.obj.id}  >
               <button type="button"  className="btn btn-danger">Details</button> 
               </Link>
                             

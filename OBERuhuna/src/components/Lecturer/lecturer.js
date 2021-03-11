@@ -5,6 +5,9 @@ import Courselist from '../Lecturer/Courselist'
 import LOlist from '../Lecturer/LOlist'
 import Coursedetails from '../Lecturer/CourseDetails'
 import AddLO from '../Lecturer/AddLO'  
+import Filter from '../Lecturer/Filter'
+import FilterPO from '../Lecturer/FilterPO'
+import AddResults from '../Results/AddResults'
 
 const Lecturer = () => {
 
@@ -46,10 +49,13 @@ const Lecturer = () => {
           </div>  
         </nav> <br />  
         <Switch>  
-          <Route path='/Courselist' component={Courselist} /> 
+          <Route path='/Courselist' component={Courselist}  /> 
           <Route path='/Couredetails' component={Coursedetails} /> 
           <Route path='/LOlist' component={LOlist} /> 
           <Route exact path='/AddLO' component={AddLO} />
+          <Route path='/filter/:id' component={Filter} />  
+          <Route path='/filterPO/:poId' component={FilterPO} /> 
+          <Route path='/AddResults' component={AddResults} /> 
         </Switch>  
       </div>  
       </BrowserRouter>
@@ -57,6 +63,9 @@ const Lecturer = () => {
       <div class="col-md-4 offset-md-4  ">
       <Link to={"/View"} target="_blank">
     <button type="button" >View</button> </Link> 
+
+    <Link to={"/AddResults"} target="_blank">
+    <button type="button" >Add Result</button> </Link> 
     </div>
     </div>
   )

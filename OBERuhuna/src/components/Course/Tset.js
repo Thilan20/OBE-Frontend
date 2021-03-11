@@ -41,27 +41,20 @@ class EditCart extends Component{
 
         if (Object.keys(errors).length === 0) {
          
-            data.numOfProducts = parseInt(data.numOfProducts);
-            data.totalPrice = data.numOfProducts*this.price;
-            axios.put(`${apiUrl}/${this.props.location.state.cartid}`, data)
+           
+            axios.put('https://localhost:5001/api/Modules/'+this.props.match.params.id, data)
                 .then((data) => {
                 console.log(data);
             })
-                .catch((error) => {
-                    console.log(error);
-                });
-            //Resetting the form
+                
             console.log('complete');
             console.log(data);
-            console.log(this.price);
-            console.log(this.props.location.state.cartid);
 
             //this.setState(this.getInitialState());
-        } else {
-            this.setState({ errors });
+        
         }
 
-        return (<Redirect to= './Cart'/>)
+        
     }
 
 
@@ -78,14 +71,14 @@ class EditCart extends Component{
 
                             <FormGroup>
                                 <Label for="productName">Product Name</Label>
-                                <Input  value={data.productName} invalid={errors.productName ? true : false} name="productName" onChange={this.handleChange}/>
-                                <FormFeedback>{errors.productName}</FormFeedback>
+                                <Input  value={data.moduleId}  name="moduleId" onChange={this.handleChange}/>
+                                
                             </FormGroup>
 
                             <FormGroup>
                                 <Label for="numOfProducts">Number Of Product</Label>
-                                <Input  value={data.numOfProducts} invalid={errors.numOfProducts ? true : false} name="numOfProducts" onChange={this.handleChange}/>
-                                <FormFeedback>{errors.numOfProducts}</FormFeedback>
+                                <Input  value={data.name} name="name" onChange={this.handleChange}/>
+                               
                             </FormGroup>
 
                                 <Button color="primary" >Save Changes</Button>
