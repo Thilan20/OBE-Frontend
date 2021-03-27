@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from './logo.jpg'
+import './Home.css'
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 import Background1 from './back4.jpg'
@@ -49,22 +50,7 @@ const Home = () => {
 
 
       </div>
-        <div class="col-md-4 offset-md-4  ">      
-          <Link className="header" to='/admin'   >
-            <button>Admin</button>
-          </Link>
-          </div>
 
-          <div class="col-md-4 offset-md-4  ">  
-            <Link className="header" to='/lecturer'  >
-              <button>Lecturer</button>
-            </Link>
-          </div>
-        <div class="col-md-4 offset-md-4  ">  
-          <Link className="header" to='/student'  >
-            <button>Student</button>
-          </Link>
-        </div>  
         <div class="col-md-4 offset-md-4  ">
           <Link className="header" to='/login'  >
             <button>Login</button>

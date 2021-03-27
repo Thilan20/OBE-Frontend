@@ -2,15 +2,12 @@ import React from 'react'
 import { Route, BrowserRouter,Link,Switch} from 'react-router-dom'
 import Logo from './logo.jpg';
 import Courselist from '../Lecturer/Courselist'
-import LOlist from '../Lecturer/LOlist'
 import Coursedetails from '../Lecturer/CourseDetails'
-import AddLO from '../Lecturer/AddLO'  
-import Filter from '../Lecturer/Filter'
-import FilterPO from '../Lecturer/FilterPO'
-import AddResults from '../Results/AddResults'
+import LOlist from '../LO/LOlist'
+import LO from '../LO/AddLO'
+import Filter2 from '../Lecturer/FilterResults'
 
 const Lecturer = () => {
-
   return (
     <div>
         <div class= "header">
@@ -32,13 +29,13 @@ const Lecturer = () => {
 
 
 
-      <div className="container">
+      <div >
         <h3 className="center">Lecturer</h3>
 
 
 
         <BrowserRouter>
-        <div className="container">  
+        <div >  
         <nav className="navbar navbar-expand-lg navheader" >  
           <div className="collapse navbar-collapse">  
             <ul className="navbar-nav mr-auto">   
@@ -49,24 +46,18 @@ const Lecturer = () => {
           </div>  
         </nav> <br />  
         <Switch>  
-          <Route path='/Courselist' component={Courselist}  /> 
+          <Route path='/Courselist' component={Courselist} /> 
           <Route path='/Couredetails' component={Coursedetails} /> 
-          <Route path='/LOlist' component={LOlist} /> 
-          <Route exact path='/AddLO' component={AddLO} />
-          <Route path='/filter/:id' component={Filter} />  
-          <Route path='/filterPO/:poId' component={FilterPO} /> 
-          <Route path='/AddResults' component={AddResults} /> 
+          <Route path ='/AddLO/:value' component = {LO}/>
+          <Route path = '/LOlist/:value' component ={LOlist} />
+          <Route path='/results/:moduleId' component={Filter2} />
+
         </Switch>  
       </div>  
       </BrowserRouter>
-      </div>
-      <div class="col-md-4 offset-md-4  ">
-      <Link to={"/View"} target="_blank">
-    <button type="button" >View</button> </Link> 
 
-    <Link to={"/AddResults"} target="_blank">
-    <button type="button" >Add Result</button> </Link> 
-    </div>
+
+      </div>
     </div>
   )
 }

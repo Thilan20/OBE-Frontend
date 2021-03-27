@@ -1,20 +1,22 @@
 import React, { Component } from 'react';  
 import { Link} from 'react-router-dom'
 import axios from 'axios';  
-import Table1 from '../Lecturer/Table1';  
+import Table2 from '../Lecturer/Table2';  
 import Logo from '../logo.jpg';
+//import "ka-table/style.scss";
+//import './style.scss';
 
-export default class Filter extends Component {  
-  
+export default class FilterResults extends Component {  
+
   constructor(props) {  
-    
+
       super(props);  
       this.state = {business: []};  
     }  
     componentDidMount(){  
       debugger;  
-      console.log("hi",this.props.match.params.id);
-      axios.get('https://localhost:5001/api/LOes?id='+this.props.match.params.id)  
+      console.log(this.props.match.params.moduleId);
+      axios.get('https://sheetdb.io/api/v1/x56s2u7t66fhe?sheet='+this.props.match.params.moduleId)  
         .then(response => {  
           this.setState({ business: response.data });  
       
@@ -26,24 +28,29 @@ export default class Filter extends Component {
       
     tabRow(){  
       return this.state.business.map(function(object, i){  
-          return <Table1 obj={object} key={i} />;  
+          return <Table2 obj={object} key={i} />;  
       });  
     }  
   
     render() {  
       return (  
-        <div>  
+        <div >  
         
-        <div className="container">
+        <div  >
           <h4 align="center">LO List</h4>  
-          <table className="table table-striped " style={{ marginTop: 10 }}>  
-            <thead>  
-              <tr>  
-                <th colSpan="1" >Name</th>   
-                <th colSpan="5">Action</th> 
+          <table allign="left" className="table table-striped " >  
+            <thead >  
+              <tr >  
+                <th >REG_NO</th>   
+                <th >LO1</th> 
+                <th >LO2</th> 
+                <th>LO3</th> 
+                <th >LO4</th> 
+                <th>LO5</th> 
+                <th >Total</th> 
               </tr>  
             </thead>  
-            <tbody>  
+            <tbody  >  
              { this.tabRow() }   
             </tbody>  
           </table>  

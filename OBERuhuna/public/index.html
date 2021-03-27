@@ -11,20 +11,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
-<script src="https://unpkg.com/recharts/umd/Recharts.min.js"></script>
+    
     <title>React App</title>
 
 
     <style>
       a { cursor: pointer; }
-      .header {
-          background-color: rgb(30, 85, 167);
+      
+.header {
+    background-color: rgb(30, 85, 167);
 
-      }
+}
+.header img {
+    float: left;
+   width:130px; 
+   height: 170px;
+   background: #555;}
+        
      .header h1{  position: relative;
          color: white;
           text-align: center;
@@ -39,11 +42,7 @@
       
       
       
-.header img {
-      float: left;
-     width:130px; 
-     height: 170px;
-     background: #555;}
+
 
 
 
@@ -221,18 +220,6 @@ hr.new4 {
   height: 500px;
   object-fit: cover
 }
-
-.button5 {
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  }
   </style>
 
 
@@ -296,9 +283,12 @@ hr.new4 {
       <div class="footer-foot">
         <div class="container-fluid" >
           <div class="foot">
+            <a href="http://localhost:3000/"  > OBE Curriculum Planning Tool</a>
+          </div>
+          <div class="foot">
             <p >Copyright &copy; Faculty of Engineering-2021.</p>
           </div>
-      </div>
+        </div>
                    
       </div>
     </footer>    

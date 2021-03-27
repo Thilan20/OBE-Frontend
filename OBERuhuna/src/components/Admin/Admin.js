@@ -24,11 +24,6 @@ const Admin = () => {
       <div className="container">
         <h3 className="center">Administrator</h3>
         
-
-        <Link className="header" to='/createcourse'   >
-          <button>Create Course</button>
-        </Link>
-  
         <BrowserRouter>
         <div className="container">  
         <nav className="navbar navbar-expand-lg navheader" >  
@@ -44,8 +39,7 @@ const Admin = () => {
           </div>  
         </nav> <br />  
         <Switch>  
-          <Route exact path='/Addcourse' component={Addcourse} />  
-          <Route path='/edit/:id' component={EditCourse} />  
+          <Route exact path='/Addcourse' component={Addcourse} />    
           <Route path='/Courselist' component={Courselist} />  
         </Switch>  
       </div>  

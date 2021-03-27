@@ -1,8 +1,9 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
-import Table from './Tables';  
+import Logo from './logo.jpg';
+import LOTable from '../LO/AddasComponentLOtable';  
   
-export default class Courselist extends Component {  
+export default class AddasComponentLO extends Component {  
   
   constructor(props) {  
       super(props);  
@@ -10,9 +11,12 @@ export default class Courselist extends Component {
     }  
     componentDidMount(){  
       debugger;  
-      axios.get('https://localhost:5001/api/Modules')  
+      axios.get('https://localhost:5001/api/LOes?id='+this.props.match.params.moduleId)  
         .then(response => {  
-          this.setState({ business: response.data });  
+      
+          this.setState({ business: response.data });
+          console.log(json.data.Status);  
+          alert("LOs of  "+this.props.match.params.value);   
           debugger;  
   
         })  
@@ -23,23 +27,20 @@ export default class Courselist extends Component {
       
     tabRow(){  
       return this.state.business.map(function(object, i){  
-          return <Table obj={object} key={i} />;  
+          return <LOTable obj={object} key={i} />;  
       });  
     }  
-  
+    
     render() {  
-      return (  
+      return (    
         <div>  
-          <h4 align="center">Course List</h4>  
+          <h5 align="center">LO List</h5>  
           <table className="table table-striped" style={{ marginTop: 10 }}>  
             <thead>  
               <tr>  
-                <th>CourseId</th>  
-                <th>Name</th>  
-                <th>Credits</th>
-                <th>Type</th>
-                <th>State</th>
-                <th colSpan="4">Action</th>  
+                <th >LOId</th>  
+                <th >LO Name</th>
+   
               </tr>  
             </thead>  
             <tbody>  

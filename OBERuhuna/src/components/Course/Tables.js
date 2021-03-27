@@ -12,14 +12,13 @@ class Table extends Component {
     }
       
     DeleteCourse= () =>{  
-     axios.delete('https://localhost:5001/api/Modules/'+this.props.obj.id)  
+     axios.delete('https://localhost:5001/api/Modules/'+this.props.obj.moduleId)  
     .then(json => {  
     alert('Record deleted successfully!!');  
-  
+     
     }) 
-   } 
-
    
+    } 
      
   render() {  
     return (  
@@ -29,13 +28,20 @@ class Table extends Component {
           </td>  
           <td>  
             {this.props.obj.name}  
-          </td>   
+          </td> 
+          <td>
+            {this.props.obj.credits}
+            </td>  
+            <td>
+            {this.props.obj.type}
+            </td>  
+            <td>
+            {this.props.obj.state}
+            </td>  
           <td>  
-          <Link to={"/edit/"+this.props.obj.id} className="btn btn-success">Edit</Link>  
-          </td>  
-          <td>  
-           <Link to={"/"}>
-              <button type="button" onClick={this.DeleteCourse} className="btn btn-danger">Delete</button> </Link>      
+            <Link to={"/"}>
+              <button type="button" onClick={this.DeleteCourse} className="btn btn-danger">Delete</button> 
+              </Link>                 
           </td>
         </tr> 
     );

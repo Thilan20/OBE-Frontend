@@ -14,15 +14,35 @@ class Table extends Component {
     return (  
         <tr colSpan="4">
           <div class=" offset-md-4">
-              <Link to={"../Result"} target="_blank">
           <td >  
+          <Link to={'/results/'+this.props.obj.moduleId}  >
+          
             {this.props.obj.moduleId}  
-          </td> </Link> 
+           </Link>
+           </td>  
           </div>
         
             <td >  
                     {this.props.obj.name}  
             </td> 
+            <td>
+            <Link to ={'/viewLO/'+this.props.obj.moduleId}>
+            
+            <button class='btn btn-success'>
+              View LOs
+            </button>
+          </Link>
+          </td>
+
+
+            <td>
+            <Link to ={'/Feedback'}>
+            
+            <button class='btn btn-success'>
+              Add Feedback
+            </button>
+          </Link>
+          </td>
 
         </tr> 
     );
