@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios';  
 import Logo from '../logo.jpg';
 import POTable from '../PO/POTables';  
+import {Link} from 'react-router-dom'
   
 export default class POlist extends Component {  
   
   constructor(props) {  
       super(props);  
-      this.state = {business: []};  
+      this.state = {business: []}; 
+
     }  
+    
     componentDidMount(){  
       debugger;  
-      axios.get('https://localhost:5001/api/POes')  
+      axios.get('https://localhost:5001/api/POes/')  
         .then(response => {  
           this.setState({ business: response.data });  
           debugger;  
@@ -31,17 +34,18 @@ export default class POlist extends Component {
     render() {  
       return (  
         <div>  
-        <div className ="header"> 
-        <img src={Logo} alt ='weblogo' />
-        
-          
-           
-              <h1>Faculty of Engineering University of Ruhuna</h1>
-            
-            <h2>Outcome Based Education System</h2>
-          
+         <div class= "header">
+          <img src={Logo} alt ='weblogo' />
+          <h1>
+              <Link className="header" to='/'  >
+                  Faculty of Engineering University of Ruhuna
+              </Link>
+          </h1>
+                            
+          <h2>Outcome Based Education System</h2>
 
         </div>
+
           <h4 align="center">PO List</h4>  
           <table className="table table-striped" style={{ marginTop: 10 }}>  
             <thead>  

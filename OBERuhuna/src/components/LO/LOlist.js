@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';  
 import Logo from './logo.jpg';
 import LOTable from '../LO/LOTables';  
+import {Link} from 'react-router-dom'
   
 export default class LOlist extends Component {  
   
@@ -16,7 +17,8 @@ export default class LOlist extends Component {
       
           this.setState({ business: response.data });
           console.log(json.data.Status);  
-          alert("LOs of  "+this.props.match.params.value);   
+          alert("LOs of  "+this.props.match.params.value);
+             
           debugger;  
   
         })  
@@ -34,17 +36,18 @@ export default class LOlist extends Component {
     render() {  
       return (    
         <div>  
-        <div className ="header"> 
-        <img src={Logo} alt ='weblogo' />
-        
-          
-           
-              <h1>Faculty of Engineering University of Ruhuna</h1>
-            
-            <h2>Outcome Based Education System</h2>
-          
+         <div class= "header">
+          <img src={Logo} alt ='weblogo' />
+          <h1>
+              <Link className="header" to='/'  >
+                  Faculty of Engineering University of Ruhuna
+              </Link>
+          </h1>
+                            
+          <h2>Outcome Based Education System</h2>
 
         </div>
+
           <h4 align="center">LO List</h4>  
           <table className="table table-striped" style={{ marginTop: 10 }}>  
             <thead>  

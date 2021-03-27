@@ -25,18 +25,19 @@ class AddAsComponent extends React.Component{
   poid:this.state.poid,
   marks:this.state.marks,
   ld:this.state.ld,
-  type:this.state.type})  
+  type:this.state.type,
+  ModuleId:this.props.match.params.value1})  
     
   .then(json => {  
       console.log(json.data.Status);  
-      alert("Data Save Successfully to "); 
-      this.props.history.push('/AsComponent') 
+      alert("Data Save Successfully to " +this.props.match.params.value1); 
+      this.props.history.push( `/AsComponent/${this.props.match.params.value1}`) 
               }  
       )
   }
 
   onClose = () => {
-      this.props.history.push('/AsComponent');
+      this.props.history.push(`/AsComponent/${this.props.match.params.value1}`);
   }
          
       
@@ -49,7 +50,7 @@ class AddAsComponent extends React.Component{
   render() {  
   return (
     
-    <Container className="App"> 
+    <Container className="App">        
      
     <h4 className="PageHeading">Add Learning Outcomes </h4>  
     <Form className="form">  

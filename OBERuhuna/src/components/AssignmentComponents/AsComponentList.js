@@ -1,19 +1,22 @@
 import React, { Component } from 'react';  
 import axios from 'axios';  
 import Logo from './logo.jpg';
+import {Button } from 'reactstrap'
 import { Route, BrowserRouter,Link,Switch} from 'react-router-dom'
 
 import AsComponentTable from './AsComponentTable';
   
 export default class AsComponentList extends Component {  
   
+   moduleId=this.props.match.params.value;
   constructor(props) {  
       super(props);  
       this.state = {business: []};  
-    }  
+    } 
     componentDidMount(){  
       debugger;  
-      axios.get('https://localhost:5001/api/AsComponents'/*+this.props.match.params.value*/)  
+      
+      axios.get('https://localhost:5001/api/AsComponents1?id=' +this.props.match.params.value)  
         .then(response => {  
       
           this.setState({ business: response.data });
@@ -26,33 +29,36 @@ export default class AsComponentList extends Component {
           console.log(error);  
         })  
     }  
-      
-    tabRow(){  
+    
+    
+    
+    tabRow(mid=this.props.match.params.value){  
       return this.state.business.map(function(object, i){  
-          return <AsComponentTable obj={object} key={i} />;  
+          return <AsComponentTable dataFromParent = {mid} obj={object} key={i} />;  
       });  
     }  
     
     render() {  
       return (    
         <div>  
-        <div className ="header"> 
-        <img src={Logo} alt ='weblogo' />
-        
-          
-           
-              <h1>Faculty of Engineering University of Ruhuna</h1>
-            
+          <div class= "header">
+            <img src={Logo} alt ='weblogo' />
+            <h1>
+                <Link className="header" to='/'  >
+                    Faculty of Engineering University of Ruhuna
+                </Link>
+            </h1>
+                              
             <h2>Outcome Based Education System</h2>
-          
 
-        </div>
+          </div>
         <div class="column col-md-1 offset-md-5">
-        <h4 align="center">Assessment Components </h4> 
+        <h4 align="center">Assessment Components of {this.props.match.params.value}</h4> 
+
         </div>
             
         <div class="column col-md-2 offset-md-4">
-            <Link to={"/AddAsComponent"}> 
+            <Link to={`/AddAsComponent/${this.props.match.params.value}`}> 
               <button> Add Assessment Components</button>
             </Link>
           </div>
@@ -72,7 +78,7 @@ export default class AsComponentList extends Component {
              { this.tabRow() }   
             </tbody>  
           </table>  
-        </div>  
+    </div>  
       );  
     }  
   }  

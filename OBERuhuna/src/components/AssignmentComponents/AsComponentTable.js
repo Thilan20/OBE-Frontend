@@ -11,7 +11,10 @@ class AsComponentTable extends Component {
   constructor(props) {  
     super(props);  
     }
+    totalmatks=()=> {
+      return items.map(({marks})=>marks).reduce((sum,i)=> sum+=i,0);
       
+    }; 
     DeleteAsComponent= () =>{  
      axios.delete('https://localhost:5001/api/AsComponents/'+this.props.obj.asID)  
     .then(json => {  
@@ -21,9 +24,12 @@ class AsComponentTable extends Component {
     }) 
    
     } 
+
+  
      
   render() {  
-    return (  
+    return ( 
+       
         <tr >  
           <div class=" col-md-1 offset-md-3">
             <td >  
@@ -50,12 +56,13 @@ class AsComponentTable extends Component {
               {this.props.obj.type}  
             </td>
           <td>  
-            <Link to={"/Ascomponent"}>
+            <Link to={`/AsComponent/${this.props.dataFromParent}`}>
               <button type="button" onClick={this.DeleteAsComponent} className="btn btn-danger">Delete</button> 
               </Link>                 
           </td>
 
       </tr> 
+
     );
       
   }  

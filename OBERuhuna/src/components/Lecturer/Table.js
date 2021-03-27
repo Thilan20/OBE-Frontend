@@ -17,9 +17,10 @@ class Table extends Component {
    
      
   render() {  
-    return (  
+    return ( 
         <tr colSpan="4">
           <div class=" offset-md-4">
+            
           <td >  
             {this.props.obj.moduleId}  
           </td>  
@@ -28,23 +29,26 @@ class Table extends Component {
             <td >  
                     {this.props.obj.name}  
            </td> 
-          
-   
+           <td>
+            <Link to={ `/Ascomponent/${ this.props.obj.moduleId }`} target="_blank" >
+              <button type="button" className="btn btn-success" > Assessment Components</button>
+            </Link>
+          </td>
           <td> 
 
             <Link to={`/AddLO/${ this.props.obj.moduleId }`} target="_blank" >
               <button type="button"  className="btn btn-success">Add LO</button> 
               </Link>
           </td>
+          
           <td>
-            
-           <Link>   
+           <Link to={`/LOlist/${ this.props.obj.moduleId }`}  target="_blank">   
               <button type="button"  className="btn btn-danger">Details</button> 
               </Link>
                             
           </td>  
         </tr> 
-
+      
     );
       
   }  

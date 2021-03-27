@@ -15,6 +15,7 @@ import AddPO from './components/PO/AddPO';
 import POlist from './components/PO/POlsit'
 import AsComponentList from './components/AssignmentComponents/AsComponentList';
 import AddAsComponent from './components/AssignmentComponents/AddAsComponent';
+import test from './components/AssignmentComponents/Test';
 class App extends Component {
   render() {
     return (
@@ -32,8 +33,9 @@ class App extends Component {
           <Route path ='/DynamicTable' component={ DynamicTable}/>
           <Route path = '/AddPO' component={AddPO}/>
           <Route path='/POlist' component={POlist}/>
-          <Route path='/Ascomponent' component={AsComponentList}/>
-          <Route path= '/AddAsComponent' component={AddAsComponent} />
+          <Route path='/Ascomponent/:value' component={AsComponentList}/>
+          <Route path= '/AddAsComponent/:value1' component={AddAsComponent} />
+          <Route path='/test' component ={test} />
         </div>        
       </div>
       </BrowserRouter>
