@@ -30,6 +30,7 @@ class Table extends Component {
                     {this.props.obj.name}  
            </td> 
            <td>
+<<<<<<< Updated upstream
             <Link to={ `/Ascomponent/${ this.props.obj.moduleId }`} target="_blank" >
               <button type="button" className="btn btn-success" > Assessment Components</button>
             </Link>
@@ -43,6 +44,31 @@ class Table extends Component {
           
           <td>
            <Link to={`/LOlist/${ this.props.obj.moduleId }`}  target="_blank">   
+=======
+            <Link to={'/results/'+this.props.obj.moduleId} >
+              <button type="button" className="btn btn-success" > Results</button>
+            </Link>
+          </td>
+          <td>
+            <Link to={'/ /'+this.props.obj.moduleId} >
+              <button type="button" className="btn btn-success" > Feedback</button>
+            </Link>
+          </td>
+           <td>
+            <Link to={ `/Ascomponent/${ this.props.obj.moduleId }`} target="_blank" >
+              <button type="button" className="btn btn-success" > Assessment Components</button>
+            </Link>
+          </td>
+          <td> 
+
+            <Link to={`/AddLO/${ this.props.obj.moduleId }`} target="_blank" >
+              <button type="button"  className="btn btn-success">Add LO</button> 
+              </Link>
+          </td>
+          
+          <td>
+           <Link to={`/LOlist/${ this.props.obj.moduleId }`} >   
+>>>>>>> Stashed changes
               <button type="button"  className="btn btn-danger">Details</button> 
               </Link>
                             

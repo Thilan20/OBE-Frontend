@@ -11,7 +11,11 @@ export default class AddasComponentLO extends Component {
     }  
     componentDidMount(){  
       debugger;  
+<<<<<<< Updated upstream
       axios.get('https://localhost:5001/api/LOes/'/*+this.props.match.params.value*/)  
+=======
+      axios.get('https://localhost:5001/api/LOes?id='+this.props.dataFromParent)  
+>>>>>>> Stashed changes
         .then(response => {  
       
           this.setState({ business: response.data });

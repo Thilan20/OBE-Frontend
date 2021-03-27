@@ -14,7 +14,11 @@ export default class POlist extends Component {
     
     componentDidMount(){  
       debugger;  
+<<<<<<< Updated upstream
       axios.get('https://localhost:5001/api/POes/')  
+=======
+      axios.get('https://localhost:5001/api/POes?id='+this.props.match.params.value)  
+>>>>>>> Stashed changes
         .then(response => {  
           this.setState({ business: response.data });  
           debugger;  
@@ -25,9 +29,15 @@ export default class POlist extends Component {
         })  
     }  
       
+<<<<<<< Updated upstream
     tabRow(){  
       return this.state.business.map(function(object, i){  
           return <POTable obj={object} key={i} />;  
+=======
+    tabRow(mid=this.props.match.params.value){  
+      return this.state.business.map(function(object, i){  
+          return <POTable  dataFromParent = {mid} obj={object} key={i} />;  
+>>>>>>> Stashed changes
       });  
     }  
   
@@ -52,7 +62,11 @@ export default class POlist extends Component {
               <tr>  
                 <th >POId</th>  
                 <th >PO Name</th>
+<<<<<<< Updated upstream
                 <th>Map</th>
+=======
+                
+>>>>>>> Stashed changes
                 <th> Delete</th>   
               </tr>  
             </thead>  

@@ -9,13 +9,22 @@ class AddPO extends React.Component{
   super(props)  
   this.state = {  
   poid:'',  
+<<<<<<< Updated upstream
   poName:'',    
+=======
+  poName:'',
+  id:'',    
+>>>>>>> Stashed changes
   } 
   
   }   
   AddPO=()=>{  
     axios.post('https://localhost:5001/api/POes', {poid:this.state.poid,
+<<<<<<< Updated upstream
     poName:this.state.poName,  })  
+=======
+    poName:this.state.poName,id:this.props.match.params.value})  
+>>>>>>> Stashed changes
     
   .then(json => {  
       console.log(json.data.Status);
@@ -42,7 +51,23 @@ class AddPO extends React.Component{
 
   render() {  
   return (
+<<<<<<< Updated upstream
     
+=======
+    <div>
+       <div class= "header">
+          <img src={Logo} alt ='weblogo' />
+          <h1>
+              <Link className="header" to='/'  >
+                  Faculty of Engineering University of Ruhuna
+              </Link>
+          </h1>
+                            
+          <h2>Outcome Based Education System</h2>
+
+        </div>
+
+>>>>>>> Stashed changes
     <Container className="App"> 
      
     <h4 className="PageHeading">Add Program Outcomes </h4>  
@@ -78,7 +103,11 @@ class AddPO extends React.Component{
       </Col>  
     </Form>  
   </Container>  
+<<<<<<< Updated upstream
     
+=======
+ </div>   
+>>>>>>> Stashed changes
   );
 }
 }

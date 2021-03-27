@@ -16,7 +16,11 @@ export default class AsComponentList extends Component {
     componentDidMount(){  
       debugger;  
       
+<<<<<<< Updated upstream
       axios.get('https://localhost:5001/api/AsComponents1?id=' +this.props.match.params.value)  
+=======
+      axios.get('https://localhost:5001/api/AsComponents?id=' +this.props.match.params.value)  
+>>>>>>> Stashed changes
         .then(response => {  
       
           this.setState({ business: response.data });

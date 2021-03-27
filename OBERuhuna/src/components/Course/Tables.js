@@ -27,6 +27,7 @@ class Table extends Component {
           </td>  
           <td>  
             {this.props.obj.name}  
+<<<<<<< Updated upstream
           </td>
           <td>
             {this.props.obj.credits}
@@ -37,6 +38,18 @@ class Table extends Component {
           <td>  
           <Link to={"/edit/"+this.props.obj.Id} className="btn btn-success">Edit</Link>  
           </td>  
+=======
+          </td> 
+          <td>
+            {this.props.obj.credits}
+            </td>  
+            <td>
+            {this.props.obj.type}
+            </td>  
+            <td>
+            {this.props.obj.state}
+            </td>  
+>>>>>>> Stashed changes
           <td>  
             <Link to={"/"}>
               <button type="button" onClick={this.DeleteCourse} className="btn btn-danger">Delete</button> 

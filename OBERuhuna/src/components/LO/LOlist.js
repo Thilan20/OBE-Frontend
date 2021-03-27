@@ -12,7 +12,11 @@ export default class LOlist extends Component {
     }  
     componentDidMount(){  
       debugger;  
+<<<<<<< Updated upstream
       axios.get('https://localhost:5001/api/LOes/'/*+this.props.match.params.value*/)  
+=======
+      axios.get('https://localhost:5001/api/LOes?id='+this.props.match.params.value)  
+>>>>>>> Stashed changes
         .then(response => {  
       
           this.setState({ business: response.data });
@@ -36,6 +40,7 @@ export default class LOlist extends Component {
     render() {  
       return (    
         <div>  
+<<<<<<< Updated upstream
          <div class= "header">
           <img src={Logo} alt ='weblogo' />
           <h1>
@@ -48,6 +53,9 @@ export default class LOlist extends Component {
 
         </div>
 
+=======
+         
+>>>>>>> Stashed changes
           <h4 align="center">LO List</h4>  
           <table className="table table-striped" style={{ marginTop: 10 }}>  
             <thead>  

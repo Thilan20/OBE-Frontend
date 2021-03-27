@@ -9,14 +9,23 @@ class AddLO extends React.Component{
   super(props)  
   this.state = {  
   loid:'',  
+<<<<<<< Updated upstream
   loName:'',
   //ModuleId:'', 
+=======
+  name:'',
+  ModuleId:'', 
+>>>>>>> Stashed changes
   } 
   
   }   
   AddLO=()=>{  
     axios.post('https://localhost:5001/api/LOes', {loid:this.state.loid,
+<<<<<<< Updated upstream
   loName:this.state.loName,ModuleId:this.props.match.params.value })  
+=======
+  name:this.state.name,ModuleId:this.props.match.params.value })  
+>>>>>>> Stashed changes
     
   .then(json => {  
       console.log(json.data.Status);  
@@ -43,6 +52,23 @@ class AddLO extends React.Component{
   render() {  
   return (
     
+<<<<<<< Updated upstream
+=======
+
+    <div>
+    <div class= "header">
+       <img src={Logo} alt ='weblogo' />
+       <h1>
+           <Link className="header" to='/'  >
+               Faculty of Engineering University of Ruhuna
+           </Link>
+       </h1>
+                         
+       <h2>Outcome Based Education System</h2>
+
+     </div>
+
+>>>>>>> Stashed changes
     <Container className="App"> 
      
     <h4 className="PageHeading">Add Learning Outcomes </h4>  
@@ -63,7 +89,11 @@ class AddLO extends React.Component{
         <FormGroup row>  
           <Label for="name" sm={2}>Name</Label>  
           <Col sm={10}>  
+<<<<<<< Updated upstream
             <Input type="text" name="loName" onChange={this.handleChange} value={this.state.loName} placeholder="Enter LO Name" />  
+=======
+            <Input type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder="Enter LO Name" />  
+>>>>>>> Stashed changes
           </Col>  
         </FormGroup>  
            
@@ -84,7 +114,12 @@ class AddLO extends React.Component{
       </Col>  
     </Form>  
     
+<<<<<<< Updated upstream
   </Container>  
+=======
+  </Container> 
+ </div>  
+>>>>>>> Stashed changes
     
   );
 }

@@ -20,6 +20,10 @@ class AddAsComponent extends React.Component{
   
   }   
   AddAsComponent=()=>{  
+<<<<<<< Updated upstream
+=======
+    console.log()
+>>>>>>> Stashed changes
     axios.post('https://localhost:5001/api/AsComponents', {ascomponent:this.state.ascomponent,
     loid:this.state.loid,
   poid:this.state.poid,
@@ -112,12 +116,18 @@ class AddAsComponent extends React.Component{
       </Col>
         <FormGroup row>
             <div class="column">
+<<<<<<< Updated upstream
                 <AddasComponentLO/>
             </div>
             <div class="column">
                 <AddasComponentPO/>
             </div>  
         </FormGroup>  
+=======
+                <AddasComponentLO  dataFromParent = {this.props.match.params.value1}/>
+            </div>
+                   </FormGroup>  
+>>>>>>> Stashed changes
     </Form>  
     
   </Container>  

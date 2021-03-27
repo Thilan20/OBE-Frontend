@@ -3,6 +3,10 @@ import { Route, BrowserRouter,Link,Switch} from 'react-router-dom'
 import Logo from './logo.jpg';
 import Courselist from '../Lecturer/Courselist'
 import Coursedetails from '../Lecturer/CourseDetails'
+import LOlist from '../LO/LOlist'
+import LO from '../LO/AddLO'
+import Filter2 from '../Lecturer/FilterResults'
+
 const Lecturer = () => {
   return (
     <div>
@@ -25,13 +29,13 @@ const Lecturer = () => {
 
 
 
-      <div className="container">
+      <div >
         <h3 className="center">Lecturer</h3>
 
 
 
         <BrowserRouter>
-        <div className="container">  
+        <div >  
         <nav className="navbar navbar-expand-lg navheader" >  
           <div className="collapse navbar-collapse">  
             <ul className="navbar-nav mr-auto">   
@@ -44,6 +48,10 @@ const Lecturer = () => {
         <Switch>  
           <Route path='/Courselist' component={Courselist} /> 
           <Route path='/Couredetails' component={Coursedetails} /> 
+          <Route path ='/AddLO/:value' component = {LO}/>
+          <Route path = '/LOlist/:value' component ={LOlist} />
+          <Route path='/results/:moduleId' component={Filter2} />
+
         </Switch>  
       </div>  
       </BrowserRouter>

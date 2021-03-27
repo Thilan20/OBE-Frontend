@@ -23,7 +23,11 @@ class AddasComponentLOtable extends Component {
           </div>      
           
             <td >  
+<<<<<<< Updated upstream
               {this.props.obj.loName}  
+=======
+              {this.props.obj.name}  
+>>>>>>> Stashed changes
             </td>
             
       </tr> 

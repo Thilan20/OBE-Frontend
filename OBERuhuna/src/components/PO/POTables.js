@@ -35,6 +35,7 @@ class POTable extends Component {
             <td >  
               {this.props.obj.poName}  
             </td>
+<<<<<<< Updated upstream
             <td>  
             <Link to={"/Ascomponent"} >
               <button type="button"  className="btn btn-success">Map</button> 
@@ -42,6 +43,11 @@ class POTable extends Component {
           </td>
           <td>  
             <Link to={"/POlist"}>
+=======
+
+          <td>  
+            <Link to={`/POlist/${this.props.dataFromParent}`}>
+>>>>>>> Stashed changes
               <button type="button" onClick={this.DeletePO} className="btn btn-danger">Delete</button> 
               </Link>                 
           </td>
